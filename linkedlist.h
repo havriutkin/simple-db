@@ -17,4 +17,7 @@ int get_value_by_key(linkedlist* head, int key);
 // Returns 1 if removed successfully, returns 0 otherwise
 int remove(linkedlist** head, int key);
 
+// Free all nodes
+void free_list(linkedlist* head);
+
 #endif

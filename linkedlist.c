@@ -64,3 +64,13 @@ int remove(linkedlist** head, int key) {
 
     return 1;
 }
+
+void free_list(linkedlist* head){
+    linkedlist* curr = head;
+
+    while (curr != NULL){
+        linkedlist* temp = curr;
+        curr = curr->next;
+        free(temp);
+    }
+}
