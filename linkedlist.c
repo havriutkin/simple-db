@@ -4,6 +4,14 @@
 
 
 int insert(linkedlist* head, datanode data) {
+    // List is empty
+    if (head == NULL) {
+        head = (linkedlist*) malloc(sizeof(linkedlist));
+        head->data = data;
+        head->next = NULL;
+        return 1;
+    }
+
     // Traverse to the last node
     linkedlist* current = head;
     while (current->next != NULL && current->data.key != data.key){
