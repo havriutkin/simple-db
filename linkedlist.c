@@ -3,12 +3,14 @@
 #include "linkedlist.h"
 
 
-void insert(linkedlist* head, datanode data) {
+int insert(linkedlist* head, datanode data) {
     // Traverse to the last node
     linkedlist* current = head;
-    while (current->next != NULL){
+    while (current->next != NULL && current->data.key != data.key){
         current = current->next;
     }
+
+    if (current->data.key == data.key) return 0;
     
     // Allocate memory
     current->next = (linkedlist*) malloc(sizeof(linkedlist));
@@ -16,6 +18,8 @@ void insert(linkedlist* head, datanode data) {
     // Initialise new node
     current->next->data = data;
     current->next->next = NULL;
+
+    return 1;
 }
 
 int get_value_by_key(linkedlist* head, int key){
