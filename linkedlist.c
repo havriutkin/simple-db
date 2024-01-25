@@ -18,6 +18,18 @@ void insert(linkedlist* head, datanode data) {
     current->next->next = NULL;
 }
 
+int get_value_by_key(linkedlist* head, int key){
+    linkedlist* current = head;
+
+    while (current != NULL && current->data.key != key) {
+       current = current->next;
+    }
+
+    if (current == NULL) return -1;
+    
+    return current->data.value;
+}
+
 int remove(linkedlist** head, int key) {
     // List is empty
     if (*head == NULL) return 0;
