@@ -19,6 +19,8 @@ void insert(linkedlist* head, datanode data) {
 }
 
 int get_value_by_key(linkedlist* head, int key){
+    if (head == NULL) return -1;
+
     linkedlist* current = head;
 
     while (current != NULL && current->data.key != key) {
