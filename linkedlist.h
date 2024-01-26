@@ -3,9 +3,9 @@
 
 #include "datanode.h"
 
-typedef struct {
+typedef struct linkedlist {
     datanode data;
-    linkedlist* next;
+    struct linkedlist* next;
 } linkedlist;
 
 // Inserts new node in list. Returns 1 if success, 0 if key already exists
@@ -15,7 +15,7 @@ int insert(linkedlist* head, datanode data);
 int get_value_by_key(linkedlist* head, int key);
 
 // Returns 1 if removed successfully, returns 0 otherwise
-int remove(linkedlist** head, int key);
+int remove_element(linkedlist** head, int key);
 
 // Free all nodes
 void free_list(linkedlist* head);

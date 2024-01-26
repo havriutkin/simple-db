@@ -28,7 +28,7 @@ int insert_value(hashmap* map, int key, int value){
 
 void rehash(hashmap* map){
     int old_capacity = map->capacity;
-    linkedlist* old_data = map->data;
+    linkedlist** old_data = map->data;
 
     map->size = 0;
     map->capacity = get_next_prime(map->capacity);
@@ -40,7 +40,7 @@ void rehash(hashmap* map){
     }
 
     for (size_t i = 0; i < old_capacity; i++) {
-        linkedlist* curr = old_data + i;
+        linkedlist* curr = *(old_data + i);
         while (curr != NULL){
             insert_value(map, curr->data.key, curr->data.value);
             linkedlist* temp = curr;

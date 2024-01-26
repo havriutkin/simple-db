@@ -44,7 +44,7 @@ int get_value_by_key(linkedlist* head, int key){
     return current->data.value;
 }
 
-int remove(linkedlist** head, int key) {
+int remove_element(linkedlist** head, int key) {
     // List is empty
     if (*head == NULL) return 0;
     
